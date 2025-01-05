@@ -1,0 +1,12 @@
+{
+  "data_contract_path": "data_contract.json",
+  "uploads_folder_path": "/Users/danielfeliperambautlemus/OneDrive - OpenSC Pty Ltd/Inbound Documents/nn/nn_cri_ecom",
+  "prefixes": ["CTE 01 - COMPRA CEREZA", "CEREZA RECIBIDA","CTE 03 - CEREZA ENCABEZADO","CTE 03 - CEREZA CONSUMIDO","CTE 03 - CEREZA RESULTADO"],
+  "suffix_order": [ ],
+  "expected_files": [
+      "cte01 compracereza", "CerezaRecibida","cte03 CerezaEncabezado","cte03 CerezaConsumido","cte03 CerezaResultado"],
+  "sender_email": "daniel.rambaut@opensc.org",
+  "receiver_emails": ["dfrafelipe@hotmail.com"],
+  "smtp_user": "daniel.rambaut@opensc.org",
+  "smtp_password": "kpuvitesyydknduo"
+}

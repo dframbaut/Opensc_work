@@ -1,0 +1,15 @@
+{
+    "data_contract_path": "/path/to/data_contract.json",
+    "uploads_folder_path": "/path/to/uploads/folder",
+    "expected_files": [
+        "PREFIX-SUFIX1-", 
+        "PREFIX-SUFIX2-", 
+        "PREFIX2-SUFIX1-"
+    ],
+    "prefixes": [],
+    "suffix_order": [],
+    "sender_email": "dfrafelipe@hotmail.com",
+    "receiver_emails": ["recipient1@example.com", "recipient2@example.com"],
+    "smtp_user": "your",
+    "smtp_password": "your_smtp_password"
+}

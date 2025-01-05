@@ -1,0 +1,12 @@
+{
+  "data_contract_path": "data_contract.json",
+  "uploads_folder_path": "/Users/danielfeliperambautlemus/Google Drive/Mi unidad/nn_cri_ecom_Cattica/cosecha 2024",
+  "prefixes": ["CTE1-CherryPurchasing", "CTE2-CherriesReceivedBeneficio","CTE3-TransformingCherryEntry","CTE3-TransformingCherryEvent","CTE3-TransformingCherryExit"],
+  "suffix_order": [ ],
+  "expected_files": [
+      "CTE1-CherryPurchasing", "CTE2-CherriesReceived", "CTE3-TransforminhCherryEntry","CTE3-TransformingCherryEvent", "CTE3-TransforminhCherryExit"],
+  "sender_email": "daniel.rambaut@opensc.org",
+  "receiver_emails": ["dfrafelipe@hotmail.com"],
+  "smtp_user": "daniel.rambaut@opensc.org",
+  "smtp_password": "kpuvitesyydknduo"
+}
