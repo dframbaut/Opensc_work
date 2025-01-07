@@ -1,0 +1,290 @@
+{
+    "$schema": "../../JSON-schema/OpenSC-data-contracts-JSON-schema.json",
+    "header": {
+      "customer": "Nespresso",
+      "actor": "Cafe de altura Costa Rica",
+      "country": "Costa Rica",
+      "commodity": "Coffee",
+      "description": "Data contract for the clusters of Cattica"
+    },
+    "body": {
+      "datasets": [
+        {
+          "type": "structured",
+          "name": "ERP database extracts",
+          "integrationMethod": "onedrive",
+          "trigger": {
+            "name": "Daily",
+            "description": "Daily delta extracts even if there are no changes in the tables with date on the file name."
+          },
+          "tables": [
+            {
+              "name": "CTE1",
+              "description": "Traceability events of Cherry purchasing",
+              "fileLocation": "CTE-01/*.xlsx",
+              "extractionType": "Delta Extract",
+              "header": true,
+              "columns": [
+                {
+                  "name": "Fecha",
+                  "description": "Date of event",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "date",
+                  "dateFormat": "%d/%m/%Y"
+                },
+                {
+                  "name": "ID recibo AAA",
+                  "description": "ID of the physical receipts per farmer and delivery filled at the purchase point.",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "ID recibidor",
+                  "description": "Internal ID for this cluster with Master table.",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "ID productor",
+                  "description": "Internal ID for this cluster with Master table.",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Volumen comprado (Cajuelas)",
+                  "description": "Volumen sold per producer and delivery. Unit is cajuela (1 ff = 1 caj / 20).",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "double"
+                },
+                {
+                  "name": "Estado del café",
+                  "description": "type of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                }
+              ]
+            },
+            {
+              "name": "CTE2",
+              "description": "Traceability events of Cherries received beneficio",
+              "fileLocation": "CTE-02/*.xlsx",
+              "extractionType": "Delta Extract",
+              "header": true,
+              "columns": [
+                {
+                  "name": "ID remedida",
+                  "description": "ID of the source physical document.",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Fecha",
+                  "description": "Date of event",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "date",
+                  "dateFormat": "%d/%m/%Y"
+                },
+                {
+                  "name": "Hora",
+                  "description": "Hora del evento",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "ID beneficio",
+                  "description": "Internal ID for this cluster with Master table.",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "ID recibidor/es (origen)",
+                  "description": "Origin purchase point. One or more, separated with \" | \"",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Volumen total recibido (por camión) (cajuelas)",
+                  "description": "Volume received per truck (coming from one or more purchase points). Unit is cajuela (1 ff = 1 caj / 20).",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "double"
+                },
+                {
+                  "name": "Calidad",
+                  "description": "Array, format: % Verde | % PintonVerde | %PintonMaduro | %Flote | %FloteMaduro | %FloteSeco | #Brocados",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Estado del café",
+                  "description": "Name of the responsible person taking the action. ",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                }
+              ]
+            },
+            {
+              "name": "CTE3-events",
+              "description": "Traceability events of Cherries received beneficio",
+              "fileLocation": "CTE-03_Encabezado/*.xlsx",
+              "extractionType": "Delta Extract",
+              "header": true,
+              "columns": [
+                {
+                  "name": "Id del evento",
+                  "description": "ID of event.",
+                  "isKey": true,
+                  "isNullable": false,
+                  "dataType": "int"
+                },
+                {
+                  "name": "Tipo",
+                  "description": "type of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Fecha",
+                  "description": "Date of the event",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "date",
+                  "dateFormat": "%d/%m/%Y"
+                },
+                {
+                  "name": "Hora",
+                  "description": "Hora of the events",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Origen cereza",
+                  "description": "Origin of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Destino pergamino",
+                  "description": "ID of Destination the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                }
+              ]
+            },
+            {
+              "name": "CTE3-Entry",
+              "description": "Traceability events of Cherries received beneficio",
+              "fileLocation": "CTE-03_Consumido/*.xlsx",
+              "extractionType": "Delta Extract",
+              "header": true,
+              "columns": [
+                {
+                  "name": "Id del evento",
+                  "description": "ID of event.",
+                  "isKey": true,
+                  "isNullable": false,
+                  "dataType": "int"
+                },
+                {
+                  "name": "Tipo producto",
+                  "description": "type of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Lote producto cereza",
+                  "description": "ID of batch",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Cantidad cereza",
+                  "description": "Volume received in beneficio",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "double"
+                },
+                {
+                  "name": "Unidad cereza",
+                  "description": "Unit of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                }
+              ]
+            },
+            {
+              "name": "CTE3-Exit",
+              "description": "Traceability events of Cherries received beneficio",
+              "fileLocation": "CTE-03_Resultado/*.xlsx",
+              "extractionType": "Delta Extract",
+              "header": true,
+              "columns": [
+                {
+                  "name": "Id del evento",
+                  "description": "ID of event.",
+                  "isKey": true,
+                  "isNullable": false,
+                  "dataType": "int"
+                },
+                {
+                  "name": "Tipo producto",
+                  "description": "type of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Lote producto pergamino",
+                  "description": "ID of batch",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                },
+                {
+                  "name": "Cantidad pergamino",
+                  "description": "Volume received in beneficio",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "double"
+                },
+                {
+                  "name": "Unidad pergamino",
+                  "description": "Unit of the coffe",
+                  "isKey": false,
+                  "isNullable": false,
+                  "dataType": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "stakeholders": [
+        {
+          "name": "Alfredo santibañez",
+          "role": "IT Manager La eva Costa Rica"
+        }
+      ]
+    }
+  }
+  
